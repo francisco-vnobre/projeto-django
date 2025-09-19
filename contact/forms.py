@@ -6,7 +6,7 @@ from . import models
 class ContactForm(forms.ModelForm):
     class Meta:
         model = models.Contact
-        fields = ('first_name', 'last_name', 'phone')
+        fields = ('first_name', 'last_name', 'phone', 'email', 'description', 'category')
     
     def clean(self):
         cleaned_data = self.cleaned_data
@@ -28,7 +28,7 @@ class ContactForm(forms.ModelForm):
         if first_name == 'ABC':
             self.add_error(
                 'first_name',
-                ValidationError(
+                ValidationError( 
                     'Veio do add_error',
                     code='invalid'
                 )
